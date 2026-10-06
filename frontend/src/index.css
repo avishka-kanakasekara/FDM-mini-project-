@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", "Iowan Old Style", Palatino, serif;
+  --color-paper: #eef4f1;
+  --color-card: #ffffff;
+  --color-ink: #10211c;
+  --color-muted: #5c6d67;
+  --color-line: #dce7e2;
+  --color-spruce: #0b2420;
+  --color-spruce-deep: #071714;
+  --color-leaf: #0e8a63;
+  --color-leaf-soft: #e5f6ef;
+  --color-brass: #a56b32;
+  --color-brass-soft: #fbf3e8;
+  --color-danger: #9b3030;
+  --color-danger-soft: #fdf0ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  background:
+    radial-gradient(980px 480px at -8% -12%, rgba(14, 138, 99, 0.18), transparent 58%),
+    radial-gradient(760px 420px at 110% -8%, rgba(165, 107, 50, 0.14), transparent 52%),
+    linear-gradient(180deg, #f7fbf9 0%, #eef4f1 48%, #e7efeb 100%);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-leaf);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 50;
+  border-radius: 0.75rem;
+  background: white;
+  padding: 0.5rem 0.75rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.panel {
+  border: 1px solid rgba(16, 33, 28, 0.08);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 22px 50px -32px rgba(11, 36, 32, 0.55);
+}
+
+.field {
+  margin-top: 0.4rem;
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid var(--color-line);
+  background: #f6faf8;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.925rem;
+  color: var(--color-ink);
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.field:hover {
+  border-color: #c5d8d0;
+  background: white;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--color-leaf);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(14, 138, 99, 0.14);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gauge-arc {
+  transition: stroke-dashoffset 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise,
+  .gauge-arc {
+    animation: none;
+    transition: none;
+  }
+}
