@@ -1,0 +1,58 @@
+{
+    "project": "BankReach \u2014 Term-Deposit Subscription Prediction",
+    "model_name": "Logistic Regression",
+    "decision_threshold": 0.7000000000000002,
+    "primary_metric": "PR-AUC / Average Precision",
+    "threshold_metric": "F2",
+    "best_parameters": {
+        "model__C": 0.035506214270707714,
+        "model__solver": "lbfgs"
+    },
+    "validation_metrics": {
+        "PR-AUC": 0.15839930127020485,
+        "ROC-AUC": 0.5853761586857964,
+        "Accuracy": 0.3594559585492228,
+        "Balanced Accuracy": 0.5524333677240075,
+        "Precision": 0.12054290315159881,
+        "Recall": 0.7975646879756468,
+        "F1": 0.20943245403677058,
+        "F2": 0.3756272401433692
+    },
+    "test_metrics": {
+        "PR-AUC": 0.5753109292981835,
+        "ROC-AUC": 0.6916874775049143,
+        "Accuracy": 0.6122713291241703,
+        "Balanced Accuracy": 0.6331993133807692,
+        "Precision": 0.49710815500289185,
+        "Recall": 0.7237894736842105,
+        "F1": 0.5894051088633636,
+        "F2": 0.6632968050625097
+    },
+    "random_state": 42,
+    "input_columns": [
+        "age",
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "contact",
+        "month",
+        "day_of_week",
+        "campaign",
+        "pdays",
+        "previous",
+        "poutcome",
+        "emp.var.rate",
+        "cons.price.idx",
+        "cons.conf.idx",
+        "euribor3m",
+        "nr.employed"
+    ],
+    "excluded_leakage_features": [
+        "duration"
+    ],
+    "rows_after_deduplication": 41176,
+    "validation_strategy": "Chronological 70/15/15 split; TimeSeriesSplit for development CV and hyperparameter search"
+}
